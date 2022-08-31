@@ -1,5 +1,6 @@
 package com.amine.springbootapijenkins;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,10 +57,11 @@ class SpringBootApiJenkinsApplicationTests {
     }
 
     @Test
+    @AfterAll
     public void deleteTheme() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.delete("/api/v1/theme/1")
                         .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
+                .andExpect(status().isNotFound())
                 .andReturn();
     }
 }

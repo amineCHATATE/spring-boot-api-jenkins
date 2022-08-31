@@ -34,4 +34,9 @@ public class ThemeController {
     public Theme createTheme(@Valid @RequestBody Theme themeTheme) {
         return themeRepository.save(themeTheme);
     }
+
+    @DeleteMapping(value = "/theme/{id}")
+    public void deleteTheme(@PathVariable Long id){
+        this.themeRepository.deleteById(id);
+    }
 }

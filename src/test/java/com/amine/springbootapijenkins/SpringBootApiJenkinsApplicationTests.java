@@ -54,4 +54,12 @@ class SpringBootApiJenkinsApplicationTests {
                 .andExpect(status().isOk())
                 .andReturn();
     }
+
+    @Test
+    public void deleteTheme() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.delete("/api/v1/theme/1")
+                        .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andReturn();
+    }
 }
